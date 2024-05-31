@@ -1,10 +1,15 @@
 package com.example.androidlesson20.utilities
 
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.androidlesson20.R
@@ -24,6 +29,23 @@ fun ImageView.loadImageWithoutBindingAdapter(url: String?) {
         .centerCrop().placeholder(R.drawable.ic_launcher_background)
         .into(this)
 }
+
+
+
+fun String.highlightName(fragment: Fragment, name: String, colorResId: Int): SpannableString {
+    val spannableString = SpannableString(this)
+    val start = this.indexOf(name)
+    if (start != -1) {
+        spannableString.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(fragment.requireContext(), colorResId)),
+            start,
+            start + name.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+    }
+    return spannableString
+}
+
 
 @BindingAdapter("loadImage")
 fun ImageView.loadImage(url: String?) {

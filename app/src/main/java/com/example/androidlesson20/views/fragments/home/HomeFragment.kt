@@ -31,6 +31,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.androidlesson20.utilities.highlightName
 import com.example.androidlesson20.views.fragments.detail.DetailFragmentArgs
 
 
@@ -67,7 +68,8 @@ class HomeFragment : Fragment() {
         viewModel.getAllRecipes()
 
         val greeting = "Hello ${args.name}, What fruit salad combo do you want today?"
-        binding.textView1.text = highlightName(greeting, args.name)
+
+        binding.textView1.text = greeting.highlightName(this, args.name, R.color.BlazingOrange)
 
         binding.editText.addTextChangedListener { text ->
             val searchText = text.toString().trim()
@@ -135,19 +137,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun highlightName(text: String, name: String): SpannableString {
-        val spannableString = SpannableString(text)
-        val start = text.indexOf(name)
-        if (start != -1) {
-            spannableString.setSpan(
-                ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.BlazingOrange)),
-                start,
-                start + name.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-        }
-        return spannableString
-    }
+
 
     private fun hideOtherWidgets() {
 

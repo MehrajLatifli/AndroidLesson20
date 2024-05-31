@@ -1,7 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AndroidLesson20" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="windowSplashScreenBackground">@color/GrapeCreme</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo2</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.AndroidLesson20</item>
+
+        <item name="windowSplashScreenAnimationDuration">500</item>
     </style>
 </resources>
