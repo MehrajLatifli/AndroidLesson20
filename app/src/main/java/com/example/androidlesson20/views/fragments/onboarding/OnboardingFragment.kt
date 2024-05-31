@@ -24,6 +24,8 @@ class OnboardingFragment : Fragment() {
 
     private val onboardAdapter = OnboardAdapter()
 
+    private var currentPage = 1
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,23 +38,23 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.viewPager2.adapter = onboardAdapter
         onboardAdapter.updateList(onboardList)
 
+        binding.viewPager2.isUserInputEnabled = false
 
         binding.buttonNext.setOnClickListener {
-            val viewPager = binding.viewPager2
-            if (!viewPager.isUserInputEnabled) {
+            currentPage++
+            if (currentPage < onboardList.size) {
+                binding.viewPager2.setCurrentItem(currentPage, true)
 
-                onboardAdapter.setNextButtonClicked(false)
+
             } else {
-
-                viewPager.currentItem = viewPager.currentItem + 1
+                binding.viewPager2.currentItem =  binding.viewPager2.currentItem + 1
                 onboardAdapter.setNextButtonClicked(true)
 
 
-                if (viewPager.currentItem == onboardList.size - 1) {
+                if ( binding.viewPager2.currentItem == onboardList.size - 1) {
                     binding.buttonNext.text = "Start Ordering"
                 }
             }
@@ -66,4 +68,5 @@ class OnboardingFragment : Fragment() {
         _binding = null
     }
 }
+
 
