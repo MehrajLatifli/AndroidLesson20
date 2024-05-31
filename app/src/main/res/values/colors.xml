@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Black">#FF000000</color>
+    <color name="White">#FFFFFFFF</color>
+    <color name="FuegoVerde">#c9d52b</color>
+    <color name="UkonSaffron">#FABA14</color>
+    <color name="OranzhewyiOrange">#EF5C3B</color>
+    <color name="Beer">#F3841F</color>
+    <color name="BlazingOrange">#FFA451</color>
+    <color name="Paua">#27214D</color>
+    <color name="ParmaMauve">#5d577e</color>
+    <color name="PerfectWhite">#f3f1f1</color>
+    <color name="GrapeCreme">#c2bdbd</color>
+</resources>

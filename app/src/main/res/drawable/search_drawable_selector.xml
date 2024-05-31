@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:state_focused="false"
+        android:state_pressed="false"
+        android:clickable="false"
+        android:drawable="@drawable/search"
+        android:drawableTint="@color/GrapeCreme"/>
+    <item
+        android:state_focused="true"
+        android:state_pressed="true"
+        android:clickable="true"
+        android:drawableTint="@color/BlazingOrange"
+        android:drawable="@drawable/search"
+        />
+
+</selector>
